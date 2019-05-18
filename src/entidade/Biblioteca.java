@@ -77,10 +77,15 @@ public class Biblioteca {
 	public void identificarAutorMaisNovo() throws BibliotecaException {
 		if (this.getObras() != null && !this.getObras().isEmpty()) {
 			int indice = 0;
-			int menorIdade = this.getObras().get(0).getEscritor().calcularIdade();
+			Obra obraAtual = this.getObras().get(0);
+
+			int menorIdade = obraAtual.getEscritor().calcularIdade();
+
 			for (int i = 1; i < this.getObras().size(); i++) {
-				if (this.getObras().get(i).getEscritor().calcularIdade() < menorIdade) {
-					menorIdade = this.getObras().get(i).getEscritor().calcularIdade();
+				obraAtual = this.getObras().get(i);
+
+				if (obraAtual.getEscritor().calcularIdade() < menorIdade) {
+					menorIdade = obraAtual.getEscritor().calcularIdade();
 					indice = i;
 				}
 			}
